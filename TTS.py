@@ -11,6 +11,11 @@ class Destination:
         print(f"Location: {self.location}")
         print(f"Price: ${self.price}")
         print(f"Description: {self.description}")
+    
+    def get_weather_info(self, destination):
+        print(f"\nFetching weather information for {destination.name}...")
+        print(f"Weather at {destination.name}: Sunny, 25°C.")
+
 
 class Review:
     def __init__(self, destination, customer_name, review_text):
@@ -45,6 +50,22 @@ class TravelPackage:
         if 0 <= index < len(self.destinations):
             return self.destinations[index]
         return None
+    
+    def show_popular_destinations(self):
+        print("\nFetching popular destinations...")
+        print("1. Paris, France")
+        print("2. Bali, Indonesia")
+        print("3. Tokyo, Japan")
+        print("4. New York, USA")
+        print("5. Sydney, Australia")
+    
+    def offer_group_booking_discount(self, num_people):
+        print(f"\nChecking for group booking discount...")
+        if num_people >= 10:
+            print("Congratulations! You get a 10% discount for group bookings.")
+        else:
+            print("No group discount applied.")
+
 
 class Itinerary:
     def __init__(self, destination, customer_name, activities):
@@ -56,6 +77,16 @@ class Itinerary:
         print(f"\nItinerary for {self.customer_name} visiting {self.destination.name}:")
         for activity in self.activities:
             print(f" - {activity}")
+    
+    def provide_safety_tips(self, destination):
+        print(f"\nProviding safety tips for your trip to {destination.name}...")
+        print(f"1. Always keep your valuables secure.")
+        print(f"2. Stay hydrated and carry sunscreen.")
+        print(f"3. Be aware of your surroundings.")
+    
+    def offer_travel_guide(self, destination):
+        print(f"\nOffering a travel guide for {destination.name}...")
+        print(f"You have received a free travel guide for {destination.name}!")
 
 class User:
     def __init__(self, username, password, user_type):
@@ -269,3 +300,8 @@ class TravelSystem:
                 break
             else:
                 print("Invalid choice, please try again.")
+
+if __name__ == "__main__":
+    system = TravelSystem()
+    system.start()
+
